@@ -1,0 +1,4 @@
+[freebuff]
+install_cmd = bun install
+dev_cmd = bun run dev
+build_cmd = bun run build
