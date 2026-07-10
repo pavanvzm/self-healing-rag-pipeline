@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 15 23 42;
+    --color-surface: 30 41 59;
+    --color-border: 51 65 85;
+    --color-text: 248 250 252;
+    --color-text-muted: 148 163 184;
+    --color-primary: 99 102 241;
+    --color-primary-hover: 79 70 229;
+    --color-success: 16 185 129;
+    --color-warning: 245 158 11;
+    --color-danger: 239 68 68;
+    --color-info: 59 130 246;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-surface-700/50 bg-surface-800/50 backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-brand-500/30 hover:shadow-lg hover:shadow-brand-500/5;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-surface-400;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .pipeline-step {
+    @apply flex items-center gap-3 rounded-lg p-3 transition-colors;
+  }
+
+  .pipeline-step-active {
+    @apply border border-brand-500/30 bg-brand-500/10;
+  }
+
+  .pipeline-step-completed {
+    @apply border border-success/20 bg-success/5;
+  }
+
+  .pipeline-step-skipped {
+    @apply border border-surface-700/50 bg-surface-800/30 opacity-60;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-surface));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-text-muted));
+}
+
+.recharts-default-tooltip {
+  @apply !rounded-lg !border !border-surface-700 !bg-surface-800/95 !backdrop-blur-sm;
+}
+
+.recharts-tooltip-label {
+  @apply !text-surface-300;
+}
+
+.recharts-tooltip-item {
+  @apply !text-surface-100;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  @apply !stroke-surface-700/30;
+}
+
+.recharts-text {
+  @apply !fill-surface-400 !text-xs;
+}
